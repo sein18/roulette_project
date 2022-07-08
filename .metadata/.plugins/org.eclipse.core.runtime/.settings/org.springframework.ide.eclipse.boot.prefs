@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
-org.springframework.ide.eclipse.boot.wizard.PopularityTracker.devtools=2
-org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mybatis=2
-org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mysql=2
-org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=2
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.devtools=3
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mybatis=3
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mysql=3
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=3
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=roulette
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.7.1
 org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo project for Spring Boot

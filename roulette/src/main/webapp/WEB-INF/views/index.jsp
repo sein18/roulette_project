@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>hi</h1>
+<h1><a href="/roulette">roulette</a></h1>
 </body>
 </html>
