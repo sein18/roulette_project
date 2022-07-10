@@ -26,27 +26,40 @@
 	height: 200px;
 	display: inline-block;
 }
+img{
+	margin-left:30px;
+	margin-top:200px;
+	
+	border: solid red;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	border: solid red;
+	
+	width: 200px;
+	height: 200px;
+}
 </style>
 <script type="text/javascript">
 	function chk(){
-		var a = Math.trunc(Math.random() * 10 + 1);
-		var b = Math.trunc(Math.random() * 10 + 1);
-		var c = Math.trunc(Math.random() * 10 + 1);
+		var a = Math.trunc(Math.random() * 9 + 1);
+		var b = Math.trunc(Math.random() * 9 + 1);
+		var c = Math.trunc(Math.random() * 9 + 1);
 		
 		var at = document.getElementsByClassName("center");
-		
-		at[0].innerHTML=a
-		at[1].innerHTML=b
-		at[2].innerHTML=c
+		at[0].setAttribute("src","/resources/img/"+a+".PNG"); 
+		at[1].setAttribute("src","/resources/img/"+b+".PNG"); 
+		at[2].setAttribute("src","/resources/img/"+c+".PNG"); 
+ 
  	}
 </script>
 <body>
 	<div class="header">
 		<div class=name><h1>roulette</h1></div>
-		<div class="center"></div>
-		<div class="center"></div>
-		<div class="center"></div>
-		<div class="center"><button onclick="chk()">랜덤선택</button></div>
+		<img class="center" alt="no" src="/resources/img/0.PNG"> 
+		<img class="center" alt="no" src="/resources/img/0.PNG"> 
+		<img class="center" alt="no" src="/resources/img/0.PNG"> 	
+		<div ><button onclick="chk()">랜덤선택</button></div>
 	</div>
 </body>
 </html>
