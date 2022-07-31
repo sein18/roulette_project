@@ -15,7 +15,6 @@ public class RouletteController {
 	
 	@GetMapping("/roulette")
 	public String roul(Model model) {
-		
 		RouletteDto rouletteDto = rouletteService.selectone("박세인");
 		model.addAttribute("rouletteDto", rouletteDto);
 		return "roulette";	

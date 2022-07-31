@@ -57,8 +57,11 @@ img{
 		at[1].setAttribute("src","/resources/img/"+b+".PNG"); 
 		at[2].setAttribute("src","/resources/img/"+c+".PNG"); 
  		
+		var view = document.getElementsByClassName("view");
 		if (a==b&&b==c){
-			alert("당첨되었습니다.");
+			view[0].textContent="당첨입니다. +10000"; 
+		}else{
+			view[0].textContent="당첨이 아닙니다. -100"; 
 		}
  	}
 </script>
@@ -72,9 +75,10 @@ img{
 	</div>
 	<div id = "id"><b>사용자</b>
 		<form action="/roulette">
-			<input type="text" value="${rouletteDto.name }" name="name">
-			<input type="text" value="${rouletteDto.money }" name="money">
+			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.name }" name="name">
+			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.money }" name="money">
 		</form>
+		<div class="view" style="width: 100%;height: 50px;text-align: center;margin-top:5%; border: 1px solid red;"></div>
 	</div>
 </body>
 </html>
