@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <style>
 .header {
 	border: solid red;
@@ -60,8 +61,34 @@ img{
 		var view = document.getElementsByClassName("view");
 		if (a==b&&b==c){
 			view[0].textContent="당첨입니다. +10000"; 
+			$.ajax({
+				url: "/roulette/money",
+				method: 'get',
+				data: {
+					no: 10000
+				},
+				success: function(rouletteDto){ 
+					$('#view').val(rouletteDto.money);
+				},
+				error: function(){
+					alert("통신실패");
+				}
+			});
 		}else{
 			view[0].textContent="당첨이 아닙니다. -100"; 
+			$.ajax({
+				url: "/roulette/money",
+				method: 'get',
+				data: {
+					no: 100
+				},
+				success: function(rouletteDto){ 
+					$('#view').val(rouletteDto.money);
+				},
+				error: function(){
+					alert("통신실패");
+				}
+			});
 		}
  	}
 </script>
@@ -76,7 +103,7 @@ img{
 	<div id = "id"><b>사용자</b>
 		<form action="/roulette">
 			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.name }" name="name">
-			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.money }" name="money">
+			<input id="view" type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.money }" name="money">
 		</form>
 		<div class="view" style="width: 100%;height: 50px;text-align: center;margin-top:5%; border: 1px solid red;"></div>
 	</div>

@@ -33,7 +33,6 @@ INDEX VERSION 1.131+C:\workspace\roulette\.metadata\.plugins\org.eclipse.jdt.cor
 3559270425.index
 1297084481.index
 1780841563.index
-192327790.index
 198934385.index
 352334691.index
 1463320157.index
