@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><a href="/roulette">roulette</a></h1>
+
+<form action="/login" method="post">
+	<label>id:</label>
+	<input type="text" name="id"><br>
+	<label>pw:</label>
+	<input type="password" name="pw">
+	<br><br>
+	<input type="submit" value="로그인">
+</form>
+	<button	value="회원가입" onclick="location.href='/regist'">회원가입</button> 
+
+ 
 </body>
 </html>

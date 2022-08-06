@@ -6,4 +6,5 @@ public interface RouletteService {
 	
 	public RouletteDto selectone(String name);
 	public int updateone(RouletteDto dto);
+	public int insertone(RouletteDto dto);
 }
