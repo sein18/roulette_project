@@ -10,8 +10,8 @@ import com.practice.roulette.model.dto.RouletteDto;
 @Mapper
 public interface RouletteMapper {
 	
-	@Select(" select * from roulette where name= #{name} ")
-	RouletteDto selectone(String name);
+	@Select(" select * from roulette where id = #{id} ")
+	RouletteDto selectone(String id);
 	
 	@Update(" update roulette set money = #{money} where name = #{name} ")
 	int updateone(RouletteDto dto);

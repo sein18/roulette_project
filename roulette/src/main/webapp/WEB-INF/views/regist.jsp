@@ -13,5 +13,6 @@
 	<label>NAME:</label><input type="text" name="name"><br><br>
 	<input type="submit" value="회원가입">
 </form>
+	<button onclick="location.href='/index'">취소</button>
 </body>
 </html>

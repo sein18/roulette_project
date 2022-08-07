@@ -99,11 +99,12 @@ img{
 		<img class="center" alt="no" src="/resources/img/0.PNG"> 
 		<img class="center" alt="no" src="/resources/img/0.PNG">
 		<div ><button onclick="chk()">랜덤선택</button></div>
+		<div ><button onclick="location.href='/logout'">로그아웃</button></div>
 	</div>
 	<div id = "id"><b>사용자</b>
 		<form action="/roulette">
-			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.name }" name="name">
-			<input id="view" type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${rouletteDto.money }" name="money">
+			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${Dto.name}" name="name">
+			<input id="view" type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${Dto.money }" name="money">
 		</form>
 		<div class="view" style="width: 100%;height: 50px;text-align: center;margin-top:5%; border: 1px solid red;"></div>
 	</div>

@@ -13,9 +13,9 @@ public class RouletteServiceImpl  implements RouletteService{
 	RouletteMapper rouletteMapper;
 	
 	@Override
-	public RouletteDto selectone(String name) {
+	public RouletteDto selectone(String id ) {
 		
-		return rouletteMapper.selectone(name);
+		return rouletteMapper.selectone(id);
 	}
 	@Override
 	public int updateone(RouletteDto dto) {
