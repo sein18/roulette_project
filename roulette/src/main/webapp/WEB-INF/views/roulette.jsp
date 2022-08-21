@@ -20,31 +20,17 @@
 }
 .center{
 	margin-left:30px;
-	margin-top:200px;
+	margin-top:30px;
 	
 	border: solid red;
 	width: 200px;
 	height: 200px;
 	display: inline-block;
 }
-img{
-	margin-left:30px;
-	margin-top:200px;
-	
-	border: solid red;
-	width: 200px;
-	height: 200px;
-	display: inline-block;
-	border: solid red;
-	
-	width: 200px;
-	height: 200px;
-}
-#id{
-	position: absolute;
-	top:15%;
-	left: 10%;
-	
+
+body{
+	margin-left: 10%;
+	margin-top: 10%;
 }
 </style>
 <script type="text/javascript">
@@ -95,18 +81,20 @@ img{
 <body>
 	<div class="header">
 		<div class=name><h1>roulette</h1></div>
-		<img class="center" alt="no" src="/resources/img/0.PNG"> 
-		<img class="center" alt="no" src="/resources/img/0.PNG"> 
-		<img class="center" alt="no" src="/resources/img/0.PNG">
-		<div ><button onclick="chk()">랜덤선택</button></div>
-		<div ><button onclick="location.href='/logout'">로그아웃</button></div>
-	</div>
-	<div id = "id"><b>사용자</b>
-		<form action="/roulette">
+		<div id = "id" style="width: 500px; margin-left: 22%; text-align: center;"><b>사용자</b>
+		<form action="/roulette" style="text-align: center;">
 			<input type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${Dto.name}" name="name">
 			<input id="view" type="text" style="width:150px; height:50px; text-align: center; font-size: 30px;" value="${Dto.money }" name="money">
 		</form>
 		<div class="view" style="width: 100%;height: 50px;text-align: center;margin-top:5%; border: 1px solid red;"></div>
+		</div>
+		<div style="margin-left: 12%">
+		<img class="center" alt="no" src="/resources/img/0.PNG"> 
+		<img class="center" alt="no" src="/resources/img/0.PNG"> 
+		<img class="center" alt="no" src="/resources/img/0.PNG">
+		</div>
+		<div ><button onclick="chk()">랜덤선택</button></div>
+		<div ><button onclick="location.href='/logout'">로그아웃</button></div>
 	</div>
 </body>
 </html>

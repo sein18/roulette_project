@@ -96,7 +96,6 @@ public class RouletteController {
 		}
 		return rouletteDto;	
 		}else {
-			
 			rouletteDto.setMoney(rouletteDto.getMoney()+no);
 			int res = rouletteService.updateone(rouletteDto);
 			if(res > 0) {
