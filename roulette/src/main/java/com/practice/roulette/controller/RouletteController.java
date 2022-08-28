@@ -91,21 +91,24 @@ public class RouletteController {
 		System.out.println(no);
 		RouletteDto rouletteDto = (RouletteDto) session.getAttribute("Dto");
 		System.out.println(rouletteDto);
-		if (no == 100) {
-
-			rouletteDto.setMoney(rouletteDto.getMoney() - no);
-			int res = rouletteService.updateone(rouletteDto);
-			if (res > 0) {
-				System.out.println(rouletteDto.getMoney());
-			}
+		if (rouletteDto.getMoney()<=0) {
 			return rouletteDto;
-		} else {
-			rouletteDto.setMoney(rouletteDto.getMoney() + no);
-			int res = rouletteService.updateone(rouletteDto);
-			if (res > 0) {
-				System.out.println(rouletteDto.getMoney());
+		}else {
+			if (no == 100) {
+				rouletteDto.setMoney(rouletteDto.getMoney() - no);
+				int res = rouletteService.updateone(rouletteDto);
+				if (res > 0) {
+					System.out.println(rouletteDto.getMoney());
+				}
+				return rouletteDto;
+			} else {
+				rouletteDto.setMoney(rouletteDto.getMoney() + no);
+				int res = rouletteService.updateone(rouletteDto);
+				if (res > 0) {
+					System.out.println(rouletteDto.getMoney());
+				}
+				return rouletteDto;
 			}
-			return rouletteDto;
 		}
 	}
 }
