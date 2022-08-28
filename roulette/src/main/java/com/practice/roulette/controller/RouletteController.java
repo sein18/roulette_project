@@ -16,23 +16,26 @@ import com.practice.roulette.model.service.RouletteService;
 
 @Controller
 public class RouletteController {
-	
+
 	@Autowired
 	RouletteService rouletteService;
-	
+
 	@Autowired
 	private BcryptPassEncoder bcryptPassEncoder;
-	
-	@GetMapping("/index")
-	public String index() {
-		return "index";
+
+	@GetMapping("/main")
+	public String index(int num, Model model) {
+		System.out.println(num);
+		model.addAttribute("num", num);
+		return "main";			
+		 
 	}
-	
+
 	@GetMapping("/regist")
 	public String regist() {
-		return "regist";	
+		return "regist";
 	}
-	
+
 //	@GetMapping("/roulette")
 //	public String roul(Model model, HttpSession session) {
 //		RouletteDto rename = (RouletteDto)session.getAttribute("rouletteDto");
@@ -41,67 +44,74 @@ public class RouletteController {
 ////		model.addAttribute("rouletteDto", rouletteDto);
 //		return "roulette";	
 //	}
-	
+
 	@PostMapping("/registinform")
 	public String registinform(RouletteDto rouletteDto) {
 		System.out.println(rouletteDto);
 		rouletteDto.setPw(bcryptPassEncoder.encode(rouletteDto.getPw()));
 		rouletteDto.setMoney(5000);
-		
+
 		int res = rouletteService.insertone(rouletteDto);
-		if(res>0) {
-			return "redirect:/index";
-		}
-		else {
-			return "redirect:/index";
+		if (res > 0) {
+			return "redirect:/main?num=0";
+		} else {
+			return "redirect:/main?num=2";
 		}
 	}
-	
+
 	@PostMapping("/login")
 	public String login(Model model, RouletteDto rouletteDto, HttpSession session) {
-		
+
 		String pw = rouletteDto.getPw();
+
 		rouletteDto = rouletteService.selectone(rouletteDto.getId());
-		Boolean res = bcryptPassEncoder.matches(pw, rouletteDto.getPw());
-		if(res) {
-			session.setAttribute("Dto", rouletteDto);
-			System.out.println(rouletteDto);
-			return "roulette";	
-		}else {
-			return "redirect:/index";
+		if (rouletteDto == null) {
+			System.out.println("아이디, 비밀번호가 존재하지 않습니다.");
+			return "redirect:/main?num=1";
+		} 
+		else {
+			Boolean res = bcryptPassEncoder.matches(pw, rouletteDto.getPw());
+			if (res) {
+				session.setAttribute("Dto", rouletteDto);
+				System.out.println(rouletteDto);
+				return "roulette";
+			} else {
+				System.out.println("아이디, 비밀번호가 존재하지 않습니다.");
+				return "redirect:/main?num=1";
+			}
 		}
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("Dto");
 		System.out.println(session.getAttribute("Dto"));
-		return "index";
+		return "main?num=0";
 	}
-	
-	//ajax이용하여 비동기 처리
+
+	// ajax이용하여 비동기 처리
 	@GetMapping("/roulette/money")
 	@ResponseBody
 	public RouletteDto money(Model model, @RequestParam("no") int no, HttpSession session) {
-		
+
 		System.out.println(no);
-		RouletteDto rouletteDto = (RouletteDto)session.getAttribute("Dto");
+		RouletteDto rouletteDto = (RouletteDto) session.getAttribute("Dto");
 		System.out.println(rouletteDto);
-		if(no==100) {
-			
-		rouletteDto.setMoney(rouletteDto.getMoney()-no);
-		int res = rouletteService.updateone(rouletteDto);
-		if(res > 0) {
-			System.out.println(rouletteDto.getMoney()); 
-		}
-		return rouletteDto;	
-		}else {
-			rouletteDto.setMoney(rouletteDto.getMoney()+no);
+		if (no == 100) {
+
+			rouletteDto.setMoney(rouletteDto.getMoney() - no);
 			int res = rouletteService.updateone(rouletteDto);
-			if(res > 0) {
-				System.out.println(rouletteDto.getMoney()); 
+			if (res > 0) {
+				System.out.println(rouletteDto.getMoney());
 			}
-			return rouletteDto;	
+			return rouletteDto;
+		} else {
+			rouletteDto.setMoney(rouletteDto.getMoney() + no);
+			int res = rouletteService.updateone(rouletteDto);
+			if (res > 0) {
+				System.out.println(rouletteDto.getMoney());
+			}
+			return rouletteDto;
 		}
 	}
 }

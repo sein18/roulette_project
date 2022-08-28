@@ -6,18 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-
-<form action="/login" method="post">
-	<label>id:</label>
-	<input type="text" name="id"><br>
-	<label>pw:</label>
-	<input type="password" name="pw">
-	<br><br>
-	<input type="submit" value="로그인">
-</form>
-	<button	value="회원가입" onclick="location.href='/regist'">회원가입</button> 
-
  
+<style>
+
+</style>
+<body>
+	<button	onclick="location.href='/main?num=0'">web serive</button> 
+
 </body>
 </html>
