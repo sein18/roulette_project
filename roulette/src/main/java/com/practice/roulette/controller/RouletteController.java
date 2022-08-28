@@ -28,7 +28,6 @@ public class RouletteController {
 		System.out.println(num);
 		model.addAttribute("num", num);
 		return "main";			
-		 
 	}
 
 	@GetMapping("/regist")
@@ -36,22 +35,17 @@ public class RouletteController {
 		return "regist";
 	}
 
-//	@GetMapping("/roulette")
-//	public String roul(Model model, HttpSession session) {
-//		RouletteDto rename = (RouletteDto)session.getAttribute("rouletteDto");
-//		System.out.println(rename);
-////		RouletteDto rouletteDto = rouletteService.selectone(rename);
-////		model.addAttribute("rouletteDto", rouletteDto);
-//		return "roulette";	
-//	}
-
 	@PostMapping("/registinform")
 	public String registinform(RouletteDto rouletteDto) {
 		System.out.println(rouletteDto);
 		rouletteDto.setPw(bcryptPassEncoder.encode(rouletteDto.getPw()));
 		rouletteDto.setMoney(5000);
-
-		int res = rouletteService.insertone(rouletteDto);
+		int res = 0; 
+		try {
+			res = rouletteService.insertone(rouletteDto);
+		} catch (Exception e) {
+			System.out.println("회원가입 오류");
+		}
 		if (res > 0) {
 			return "redirect:/main?num=0";
 		} else {
@@ -86,7 +80,7 @@ public class RouletteController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("Dto");
 		System.out.println(session.getAttribute("Dto"));
-		return "main?num=0";
+		return "redirect:/main?num=3";
 	}
 
 	// ajax이용하여 비동기 처리

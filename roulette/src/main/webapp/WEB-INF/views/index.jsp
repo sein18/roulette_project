@@ -12,6 +12,5 @@
 </style>
 <body>
 	<button	onclick="location.href='/main?num=0'">web serive</button> 
-
 </body>
 </html>

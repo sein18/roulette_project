@@ -11,7 +11,11 @@
 	let n = ${num};
 	console.log(n);
 	if(n==1){
-		alert("아이디, 비밀번호가 존재하지 않습니다.");
+		alert("아이디, 비밀번호가 일치하지 않습니다.");
+	}else if(n==2){
+		alert("회원가입 오류입니다.");
+	}else if(n==3){
+		alert("로그아웃 되었습니다.(다시 로그인하세요)");
 	}
 </script>
 <style>
